@@ -5,7 +5,8 @@
     .column-full
       - if flash.present?
         - flash.each do |name, msg|
-          .error-summary= msg
+          %div{class: "error-summary #{name}"}
+            = msg
       - if user_signed_in?
         %h1.heading-large
           Welcome,

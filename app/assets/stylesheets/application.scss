@@ -18,3 +18,19 @@
 .panel {
   margin-top: 4rem;
 }
+
+.error-summary.success {
+  border-color: $green;
+}
+
+.error-summary.notice {
+  border-color: $govuk-blue;
+}
+
+.error-summary.alert {
+  border-color: $red;
+}
+
+.error-summary.error {
+  border-color: $error-colour;
+}
