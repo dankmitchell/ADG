@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: adg_development
+
+test:
+  <<: *default
+  database: adg_test
+
+production:
+  <<: *default
+  database: adg_production
+  username: adg_admin
+  password: <%= ENV['ADG_DATABASE_PASSWORD'] %>

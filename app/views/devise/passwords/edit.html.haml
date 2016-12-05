@@ -1,0 +1,13 @@
+- content_for :page_title, "Reset password - ADG Exercise"
+
+%main{id: "content", role: "main"}
+  .grid-row
+    .column-full
+      = devise_error_messages!
+      %h1.heading-large Change your password
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), wrapper: :vertical_form, html: { method: :put }) do |f|
+        = f.hidden_field :reset_password_token
+        = f.input :password, hint: "(#{@minimum_password_length} characters minimum)"
+        = f.input :password_confirmation
+        = f.button :submit, "Change my password", class: "button"
+      = render "devise/shared/links"

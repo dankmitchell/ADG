@@ -1,0 +1,19 @@
+- content_for :page_title, "Home - ADG Exercise"
+
+%main{id: "content", role: "main"}
+  .grid-row
+    .column-full
+      - if flash.present?
+        - flash.each do |name, msg|
+          .error-summary= msg
+      - if user_signed_in?
+        %h1.heading-large
+          Welcome,
+          = current_user.email
+        %p
+          You are signed in, view all
+          = link_to 'users', users_path
+      - else
+        %h1.heading-large Welcome, please sign in
+        %p.get-started.group
+          = link_to "Sign in", new_user_session_path, class: "button button-start"

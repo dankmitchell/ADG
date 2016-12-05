@@ -1,0 +1,14 @@
+- content_for :page_title, "Sign in - ADG Exercise"
+
+%main{id: "content", role: "main"}
+  .grid-row
+    .column-full
+      - if flash.present?
+        - flash.each do |name, msg|
+          .error-summary= msg
+      %h1.heading-large Sign in
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :vertical_form ) do |f|
+        = f.input :email
+        = f.input :password
+        = f.button :submit, "Sign in", class: "button"
+      = render "devise/shared/links"
